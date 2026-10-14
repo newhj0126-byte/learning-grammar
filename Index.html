@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Christmas Miracle - 현재분사 vs 동명사 탐구</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Noto Sans KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e2e8f0;
+        }
+        /* Custom scrollbar for better visual appearance */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-blue-100 selection:text-blue-800">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="bg-blue-600 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">중3 영어</span>
+                <h1 class="text-lg md:text-xl font-bold tracking-tight flex items-center gap-2">
+                    <i class="fa-solid fa-tree text-emerald-400"></i> A Christmas Miracle
+                </h1>
+            </div>
+            <div class="text-xs md:text-sm text-slate-300 font-medium">
+                현재분사 vs 동명사 Master
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
+        
+        <!-- Tab Navigation -->
+        <div class="flex border-b border-slate-200 mb-6 bg-white rounded-t-xl px-2 shadow-sm">
+            <button onclick="switchTab('text')" id="tab-text" class="tab-btn active px-4 py-3 text-sm md:text-base font-medium text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-book-open"></i> 교과서 본문
+            </button>
+            <button onclick="switchTab('sim')" id="tab-sim" class="tab-btn px-4 py-3 text-sm md:text-base font-medium text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-vial"></i> ~ing 역할 탐구
+            </button>
+            <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-btn px-4 py-3 text-sm md:text-base font-medium text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square"></i> 개념 확인 퀴즈
+            </button>
+        </div>
+
+        <!-- Section 1: 교과서 본문 읽기 -->
+        <section id="sec-text" class="space-y-4">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex justify-between items-center mb-4 border-b pb-3">
+                    <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-file-lines text-blue-600"></i> 본문 내용 (A Christmas Miracle)
+                    </h2>
+                    <span class="text-xs text-slate-500">본문 속 <span class="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold">~ing</span> 단어에 주목해보세요!</span>
+                </div>
+                <div class="prose max-w-none text-slate-700 leading-relaxed space-y-4 text-sm md:text-base">
+                    <p>
+                        It was Christmas Eve in 1914, the first year of World War I. English soldiers were facing German soldiers from their trenches as they had done for the last few months. The trenches were cold and wet. The soldiers were tired and missed their home, all the more so because it was Christmas.
+                    </p>
+                    <p>
+                        Suddenly, a familiar song was heard 
+                        <span class="bg-amber-100 text-amber-900 font-semibold px-1 rounded hover:bg-amber-200 cursor-pointer transition-colors" title="현재분사 (명사/상태 수식)">coming</span> 
+                        from the German trenches. It was a Christmas carol! What’s going on? It might be a trick to make them come out of the trenches. A few English soldiers boldly looked out of their trenches. One by one, other soldiers followed their example.
+                    </p>
+                    <p>
+                        What they saw was a sight they never expected. Along the German trenches, Christmas trees were 
+                        <span class="bg-amber-100 text-amber-900 font-semibold px-1 rounded hover:bg-amber-200 cursor-pointer transition-colors" title="현재분사 (진행형)">standing</span> 
+                        lit with lanterns! The German soldiers sang one Christmas song after another. The English soldiers began to answer by also 
+                        <span class="bg-amber-100 text-amber-900 font-semibold px-1 rounded hover:bg-amber-200 cursor-pointer transition-colors" title="동명사 (전치사의 목적어)">singing</span> 
+                        Christmas songs. The warm lights and the Christmas carols made them forget they were on the front line. Then a shout came out from the German side: “Happy Christmas! You no shoot, we no shoot!” Soon, soldiers whose aim had been to kill each other just a few hours before began to exchange greetings. For the first time in several months, the soldiers were able to spend a night in peace. It truly was a silent night.
+                    </p>
+                    <p>
+                        Christmas morning came. Soldiers on both sides put down their weapons and came out of their trenches. They met in the no-man’s-land between their trenches and shook hands. They exchanged small gifts such as wine and cake. They sang carols together. Some even exchanged addresses and played football.
+                    </p>
+                    <p>
+                        This unbelievable Christmas Day was written about in letters English soldiers sent home. One soldier wrote, “On Christmas Day, English and German soldiers met between the two lines and had talks. We also had bike races.” Another wrote, “We didn’t think that we were at war. Here we were, enemy talking to enemy. They were like us, with mothers, with friends, with wives who were 
+                        <span class="bg-amber-100 text-amber-900 font-semibold px-1 rounded hover:bg-amber-200 cursor-pointer transition-colors" title="현재분사 (진행형)">waiting</span> 
+                        to welcome their men home again.”
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-blue-600 text-lg mt-0.5"></i>
+                <div class="text-sm text-blue-900">
+                    <strong class="font-semibold">핵심 문법 포인트:</strong> 형태는 같은 <code class="bg-blue-100 px-1 rounded font-mono font-bold text-blue-800">verb + ing</code> 형태이지만, 문장 안에서 <strong>형용사(현재분사)</strong> 역할을 하는지, <strong>명사(동명사)</strong> 역할을 하는지에 따라 의미와 기능이 크게 달라집니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 시뮬레이션 / 탐구 활동 -->
+        <section id="sec-sim" class="space-y-6 hidden">
+            <!-- 변수 조작 영역 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-blue-600"></i> 문장 구조 변수 조작 시뮬레이션
+                </h2>
+                <p class="text-sm text-slate-600 mb-6">
+                    교과서 속 ~ing 단어 카드를 클릭하고, 적용할 **[문법적 역할 변수]**를 선택해보세요. 선택한 역할에 따라 문장의 구조와 의미가 어떻게 변하는지 확인해봅시다.
+                </p>
+
+                <!-- Step 1: 단어 선택 -->
+                <div class="mb-6">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">1. 탐구할 본문 문장 / ~ing 단어 선택</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <button onclick="selectTarget('coming')" id="btn-target-coming" class="sim-target-btn p-3 text-left border-2 border-slate-200 rounded-xl hover:border-blue-400 transition-all active bg-blue-50 border-blue-500">
+                            <div class="text-xs text-slate-500">문장 1</div>
+                            <div class="font-bold text-blue-700">coming</div>
+                        </button>
+                        <button onclick="selectTarget('standing')" id="btn-target-standing" class="sim-target-btn p-3 text-left border-2 border-slate-200 rounded-xl hover:border-blue-400 transition-all">
+                            <div class="text-xs text-slate-500">문장 2</div>
+                            <div class="font-bold text-slate-800">standing</div>
+                        </button>
+                        <button onclick="selectTarget('singing')" id="btn-target-singing" class="sim-target-btn p-3 text-left border-2 border-slate-200 rounded-xl hover:border-blue-400 transition-all">
+                            <div class="text-xs text-slate-500">문장 3</div>
+                            <div class="font-bold text-slate-800">singing</div>
+                        </button>
+                        <button onclick="selectTarget('waiting')" id="btn-target-waiting" class="sim-target-btn p-3 text-left border-2 border-slate-200 rounded-xl hover:border-blue-400 transition-all">
+                            <div class="text-xs text-slate-500">문장 4</div>
+                            <div class="font-bold text-slate-800">waiting</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: 역할 변수 선택 -->
+                <div class="mb-6">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">2. 부여할 문법적 역할(변수) 선택</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+                        <button onclick="selectRole('participle_adj')" id="btn-role-participle_adj" class="sim-role-btn p-3 border border-slate-200 rounded-xl hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-all text-center border-blue-500 bg-blue-50 text-blue-700">
+                            [현재분사]<br>명사 수식 / 보어
+                        </button>
+                        <button onclick="selectRole('participle_prog')" id="btn-role-participle_prog" class="sim-role-btn p-3 border border-slate-200 rounded-xl hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-all text-center">
+                            [현재분사]<br>be + ~ing (진행형)
+                        </button>
+                        <button onclick="selectRole('gerund_prep')" id="btn-role-gerund_prep" class="sim-role-btn p-3 border border-slate-200 rounded-xl hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-all text-center">
+                            [동명사]<br>전치사의 목적어
+                        </button>
+                        <button onclick="selectRole('gerund_sub')" id="btn-role-gerund_sub" class="sim-role-btn p-3 border border-slate-200 rounded-xl hover:bg-slate-50 text-xs font-semibold text-slate-700 transition-all text-center">
+                            [동명사]<br>주어 / 보어 / 목적어
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: 결과 출력 카드 -->
+                <div id="sim-result-card" class="bg-slate-900 text-white p-5 rounded-xl space-y-3 transition-all">
+                    <!-- Dynamic JS Injection -->
+                </div>
+            </div>
+
+            <!-- 셀프 탐구 질문 3가지 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h3 class="text-base font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-emerald-600"></i> 스스로 답해보는 탐구 질문
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <!-- Q1 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <p class="font-semibold text-slate-800 mb-2">Q1. "...a song was heard <span class="text-blue-600 underline">coming</span> from..." 문장에서 coming은 왜 동명사가 아닌 현재분사일까요?</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="sim-q1" value="a" class="accent-blue-600">
+                                <span>주어나 목적어로 쓰여 '~하는 것'으로 해석되기 때문이다.</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="sim-q1" value="b" class="accent-blue-600">
+                                <span>지각동사(heard)의 목적격 보어로 쓰여 '소리가 들려오는 (상태)'를 나타내기 때문이다.</span>
+                            </label>
+                        </div>
+                        <button onclick="checkSimQ('q1', 'b')" class="mt-3 text-xs bg-slate-800 text-white px-3 py-1.5 rounded-lg hover:bg-slate-700 transition-colors">정답 확인</button>
+                        <p id="sim-q1-ans" class="hidden text-xs font-bold mt-2"></p>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <p class="font-semibold text-slate-800 mb-2">Q2. "...by also <span class="text-blue-600 underline">singing</span> Christmas songs."에서 singing은 왜 현재분사가 아닐까요?</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="sim-q2" value="a" class="accent-blue-600">
+                                <span>전치사(by)의 뒤에 위치하여 전치사의 목적어(명사 역할)로 쓰였기 때문이다.</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="sim-q2" value="b" class="accent-blue-600">
+                                <span>be동사와 함께 쓰여 현재진행형 시제를 만들기 때문이다.</span>
+                            </label>
+                        </div>
+                        <button onclick="checkSimQ('q2', 'a')" class="mt-3 text-xs bg-slate-800 text-white px-3 py-1.5 rounded-lg hover:bg-slate-700 transition-colors">정답 확인</button>
+                        <p id="sim-q2-ans" class="hidden text-xs font-bold mt-2"></p>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <p class="font-semibold text-slate-800 mb-2">Q3. "wives <span class="text-blue-600 underline">who were waiting</span>"을 "wives <span class="text-blue-600 underline">waiting</span>"으로 줄여 쓸 수 있는 이유는?</p>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="sim-q3" value="a" class="accent-blue-600">
+                                <span>주격 관계대명사+be동사를 생략하고 현재분사(waiting)만 남아 명사(wives)를 후부 수식하기 때문이다.</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="sim-q3" value="b" class="accent-blue-600">
+                                <span>waiting이 명사가 되어 wives와 동격 관계를 형성하기 때문이다.</span>
+                            </label>
+                        </div>
+                        <button onclick="checkSimQ('q3', 'a')" class="mt-3 text-xs bg-slate-800 text-white px-3 py-1.5 rounded-lg hover:bg-slate-700 transition-colors">정답 확인</button>
+                        <p id="sim-q3-ans" class="hidden text-xs font-bold mt-2"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 시뮬레이션 규칙 한 줄 명시 -->
+            <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-center text-xs font-medium text-amber-900">
+                <i class="fa-solid fa-lightbulb text-amber-600 mr-1"></i>
+                <strong>규칙:</strong> 현재분사는 명사를 수식하거나 진행/상태를 나타내며, 동명사는 주어·목적어·보어 위치에서 명사 역할을 합니다.
+            </div>
+        </section>
+
+        <!-- Section 3: 개념 확인 퀴즈 -->
+        <section id="sec-quiz" class="space-y-6 hidden">
+            <!-- Score Overview Header -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex justify-between items-center">
+                <div>
+                    <h2 class="text-base font-bold text-slate-800">개념 평가 퀴즈 (총 4문항)</h2>
+                    <p class="text-xs text-slate-500">오답을 고르면 학생들이 흔히 하는 오개념 해설이 제공됩니다.</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-slate-500 block">진도율</span>
+                    <span id="quiz-progress-text" class="text-sm font-bold text-blue-600">0 / 4</span>
+                </div>
+            </div>
+
+            <!-- Quiz Items Container -->
+            <div id="quiz-container" class="space-y-6">
+                <!-- Dynamic Quiz Generation via JS -->
+            </div>
+
+            <!-- Quiz Final Result Summary (Hidden by default) -->
+            <div id="quiz-final-result" class="hidden bg-white p-6 rounded-2xl shadow-md border border-slate-200 text-center space-y-4">
+                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800">퀴즈 완료!</h3>
+                <p class="text-sm text-slate-600">당신의 점수는 <span id="final-score" class="text-2xl font-extrabold text-blue-600">0</span> / 100점 입니다.</p>
+                
+                <div id="misconception-analysis" class="text-left bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm space-y-2">
+                    <!-- Dynamic Misconception Summary -->
+                </div>
+
+                <button onclick="resetQuiz()" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-sm text-sm">
+                    <i class="fa-solid fa-rotate-right mr-1"></i> 다시 풀기
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4">
+            중학교 3학년 영어과 | Lesson. A Christmas Miracle | Grammatical Focus: Present Participle vs Gerund
+        </div>
+    </footer>
+
+    <script>
+        // --- Tab Switching Logic ---
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            document.getElementById('sec-text').classList.add('hidden');
+            document.getElementById('sec-sim').classList.add('hidden');
+            document.getElementById('sec-quiz').classList.add('hidden');
+
+            document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+        }
+
+        // --- Simulation Logic ---
+        let currentSimTarget = 'coming';
+        let currentSimRole = 'participle_adj';
+
+        const simData = {
+            coming: {
+                word: 'coming',
+                sentence: 'Suddenly, a familiar song was heard coming from the German trenches.',
+                participle_adj: {
+                    type: '현재분사 (목적격 보어 / 상태 수식)',
+                    valid: true,
+                    desc: '교과서 원문과 동일! 지각동사(heard) 뒤에서 소리가 "들려오는" 생생한 상태를 나타내는 현재분사 역할입니다.',
+                    translation: '갑자기, 익숙한 노래가 독일군 진지로부터 들려오는 것이 들렸다.'
+                },
+                participle_prog: {
+                    type: '현재분사 (진행형)',
+                    valid: false,
+                    desc: '문맥 변형: "...a song was coming..."으로 쓰이면 "노래가 오고 있었다"는 진행형 시제가 됩니다.',
+                    translation: '갑자기, 익숙한 노래가 독일군 진지로부터 오고 있었다.'
+                },
+                gerund_prep: {
+                    type: '동명사 (전치사의 목적어)',
+                    valid: false,
+                    desc: '오개념 적용: 문장에 전치사가 없으므로 전치사의 목적어가 될 수 없습니다.',
+                    translation: '[어색한 문장] 전치사 없이 동명사 혼용 불가'
+                },
+                gerund_sub: {
+                    type: '동명사 (명사/주어)',
+                    valid: false,
+                    desc: '오개념 적용: "Coming from the trenches was surprising." 형태처럼 주어(~하는 것)로 쓰이는 동명사 역할입니다.',
+                    translation: '진지로부터 오는 것은 놀라웠다.'
+                }
+            },
+            standing: {
+                word: 'standing',
+                sentence: 'Christmas trees were standing lit with lanterns!',
+                participle_adj: {
+                    type: '현재분사 (상태 보어)',
+                    valid: false,
+                    desc: '수식어보다는 진행 동작 자체에 무게가 있습니다.',
+                    translation: '크리스마스 트리들이 등불로 밝혀진 채 서 있는 상태였다.'
+                },
+                participle_prog: {
+                    type: '현재분사 (과거진행형)',
+                    valid: true,
+                    desc: '교과서 원문과 동일! 과거동사 were + standing이 결합하여 "서 있었다"라는 과거의 진행 상태를 나타냅니다.',
+                    translation: '크리스마스 트리들이 등불로 밝혀진 채 서 있었다!'
+                },
+                gerund_prep: {
+                    type: '동명사 (전치사의 목적어)',
+                    valid: false,
+                    desc: '오개념 적용: be동사(were) 뒤의 standing을 전치사의 목적어로 착각해서는 안 됩니다.',
+                    translation: '[문법 오류] 전치사 없음'
+                },
+                gerund_sub: {
+                    type: '동명사 (보어: ~하는 것)',
+                    valid: false,
+                    desc: '오개념 적용: "트리들이 서 있는 것이었다"라고 해석하면 주어와의 동격이 성립하지 않아 어색합니다.',
+                    translation: '[어색함] 크리스마스 트리들은 서 있는 것이었다.'
+                }
+            },
+            singing: {
+                word: 'singing',
+                sentence: 'The English soldiers began to answer by also singing Christmas songs.',
+                participle_adj: {
+                    type: '현재분사 (명사 수식)',
+                    valid: false,
+                    desc: '오개념 적용: singing 뒤에 Christmas songs 명사가 있다고 해서 노래를 꾸미는 현재분사로 오인하기 쉽지만, 앞에 전치사 by가 있습니다.',
+                    translation: '[오해하기 쉬움] 노래 부르는 크리스마스 캐럴들'
+                },
+                participle_prog: {
+                    type: '현재분사 (진행형)',
+                    valid: false,
+                    desc: '앞에 be동사가 없으므로 진행형 현재분사가 아닙니다.',
+                    translation: '[문법 오류] be동사 부재'
+                },
+                gerund_prep: {
+                    type: '동명사 (전치사 by의 목적어)',
+                    valid: true,
+                    desc: '교과서 원문과 동일! 전치사 by 뒤에 위치하여 "by ~ing (~함으로써)" 구문을 만드는 동명사입니다.',
+                    translation: '영국군 병사들도 크리스마스 노래를 또한 부름으로써 응답하기 시작했다.'
+                },
+                gerund_sub: {
+                    type: '동명사 (주어)',
+                    valid: false,
+                    desc: '문장의 주어는 The English soldiers입니다.',
+                    translation: '[문법 오류] 주어 위치가 아님'
+                }
+            },
+            waiting: {
+                word: 'waiting',
+                sentence: '...wives who were waiting to welcome their men home again.',
+                participle_adj: {
+                    type: '현재분사 (후부 수식)',
+                    valid: true,
+                    desc: '교과서 원문 축약 형태! "who were waiting"에서 관계대명사+be동사를 생략하면 "wives waiting..."이 되어 명사를 뒤에서 꾸미는 현재분사가 됩니다.',
+                    translation: '남편들이 다시 집에 돌아온 것을 환영하기 위해 기다리는 아내들'
+                },
+                participle_prog: {
+                    type: '현재분사 (과거진행형)',
+                    valid: true,
+                    desc: '교과서 원문 형태! 관계대명사절 안에서 were + waiting 형태로 과거 진행 동작을 나타냅니다.',
+                    translation: '기다리고 있었던 아내들'
+                },
+                gerund_prep: {
+                    type: '동명사 (전치사의 목적어)',
+                    valid: false,
+                    desc: '전치사 뒤가 아니므로 동명사가 아닙니다.',
+                    translation: '[문법 오류]'
+                },
+                gerund_sub: {
+                    type: '동명사 (명사 역할)',
+                    valid: false,
+                    desc: '명사를 수식하고 있으므로 동명사가 아닌 현재분사입니다.',
+                    translation: '[문법 오류]'
+                }
+            }
+        };
+
+        function selectTarget(target) {
+            currentSimTarget = target;
+            document.querySelectorAll('.sim-target-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-50', 'border-blue-500');
+                btn.querySelector('div:last-child').classList.remove('text-blue-700');
+            });
+            const btn = document.getElementById(`btn-target-${target}`);
+            btn.classList.add('active', 'bg-blue-50', 'border-blue-500');
+            btn.querySelector('div:last-child').classList.add('text-blue-700');
+            updateSimCard();
+        }
+
+        function selectRole(role) {
+            currentSimRole = role;
+            document.querySelectorAll('.sim-role-btn').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'bg-blue-50', 'text-blue-700');
+            });
+            const btn = document.getElementById(`btn-role-${role}`);
+            btn.classList.add('border-blue-500', 'bg-blue-50', 'text-blue-700');
+            updateSimCard();
+        }
+
+        function updateSimCard() {
+            const data = simData[currentSimTarget][currentSimRole];
+            const card = document.getElementById('sim-result-card');
+            
+            const matchBadge = data.valid 
+                ? `<span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs px-2.5 py-0.5 rounded-full font-bold"><i class="fa-solid fa-check mr-1"></i>교과서 본문 적합</span>`
+                : `<span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs px-2.5 py-0.5 rounded-full font-bold"><i class="fa-solid fa-triangle-exclamation mr-1"></i>오개념/변형 적용</span>`;
+
+            card.innerHTML = `
+                <div class="flex justify-between items-start gap-2 border-b border-slate-700 pb-2">
+                    <div>
+                        <span class="text-xs text-slate-400">분석 역할:</span>
+                        <h4 class="text-base font-bold text-blue-400">${data.type}</h4>
+                    </div>
+                    ${matchBadge}
+                </div>
+                <div class="font-mono text-sm bg-slate-800/80 p-3 rounded-lg text-slate-200 border border-slate-700">
+                    "${simData[currentSimTarget].sentence.replace(simData[currentSimTarget].word, `<span class="text-amber-400 font-bold underline">${simData[currentSimTarget].word}</span>`)}"
+                </div>
+                <div class="text-xs text-slate-300 space-y-1">
+                    <p><strong>[설명]</strong> ${data.desc}</p>
+                    <p><strong>[해석]</strong> ${data.translation}</p>
+                </div>
+            `;
+        }
+
+        function checkSimQ(qId, correctVal) {
+            const selected = document.querySelector(`input[name="sim-${qId}"]:checked`);
+            const ansElem = document.getElementById(`sim-${qId}-ans`);
+            ansElem.classList.remove('hidden');
+            
+            if (!selected) {
+                ansElem.className = "text-xs font-bold mt-2 text-amber-600";
+                ansElem.innerText = "보기 중 하나를 선택해 주세요.";
+                return;
+            }
+
+            if (selected.value === correctVal) {
+                ansElem.className = "text-xs font-bold mt-2 text-emerald-600";
+                ansElem.innerText = "정답입니다! 올바른 문법적 구분을 하셨습니다.";
+            } else {
+                ansElem.className = "text-xs font-bold mt-2 text-rose-600";
+                ansElem.innerText = "오답입니다. 문장 내에서 ~ing가 하는 역할(명사 vs 형용사)을 다시 확인해보세요.";
+            }
+        }
+
+        // --- Quiz Logic ---
+        const quizQuestions = [
+            {
+                id: 1,
+                question: "다음 본문 문장의 밑줄 친 <span class='underline font-bold text-blue-600'>coming</span>과 문법적 쓰임이 **같은** 것은?",
+                context: "Suddenly, a familiar song was heard <span class='underline font-bold'>coming</span> from the German trenches.",
+                options: [
+                    {
+                        text: "Christmas trees were standing <span class='font-semibold'>lit</span> with lanterns!",
+                        isCorrect: true,
+                        misconception: "상태나 명사를 수식하는 현재분사/분사 구문 구조로 정상적으로 인식함.",
+                        fix: "정답! coming은 지각동사의 목적격보어 역할(현재분사)이며, lit 역시 상태를 나타내는 분사 표현으로 형용사적 쓰임이 같습니다."
+                    },
+                    {
+                        text: "<span class='font-semibold'>Singing</span> carols with enemies was surprising.",
+                        isCorrect: false,
+                        misconception: "~ing 형태만 보고 주어로 쓰인 '동명사'를 현재분사로 착각함.",
+                        fix: "Singing은 문장의 주어로 쓰인 '동명사(~하는 것)'입니다."
+                    },
+                    {
+                        text: "English soldiers began to answer by also <span class='font-semibold'>singing</span>.",
+                        isCorrect: false,
+                        misconception: "전치사 by 뒤에 있는 '동명사'를 목적격 보어 현재분사로 오인함.",
+                        fix: "전치사 by 뒤의 singing은 전치사의 목적어로 쓰인 '동명사'입니다."
+                    },
+                    {
+                        text: "His favorite Christmas activity was <span class='font-semibold'>playing</span> football.",
+                        isCorrect: false,
+                        misconception: "be동사 뒤의 주격보어로 쓰인 '동명사'를 상태 수식 현재분사로 오해함.",
+                        fix: "playing은 '축구를 하는 것'이라는 뜻의 주격 보어 '동명사'입니다."
+                    }
+                ]
+            },
+            {
+                id: 2,
+                question: "본문 문장 중 <span class='underline font-bold text-blue-600'>'wives who were waiting'</span>을 현재분사를 사용하여 축약한 표현으로 가장 알맞은 것은?",
+                context: "...wives who were waiting to welcome their men home again.",
+                options: [
+                    {
+                        text: "wives <span class='font-semibold'>waiting</span> to welcome their men home",
+                        isCorrect: true,
+                        misconception: "주격관계대명사+be동사의 생략 후 현재분사의 후부수식을 정확히 이해함.",
+                        fix: "정답! 주격 관계대명사(who)와 be동사(were)가 생략되면 현재분사(waiting)만 남아 뒤에서 명사(wives)를 꾸며줍니다."
+                    },
+                    {
+                        text: "wives <span class='font-semibold'>waited</span> to welcome their men home",
+                        isCorrect: false,
+                        misconception: "아내들이 능동적으로 기다리는 주체임에도 수동의 의미인 과거분사(waited)를 씀.",
+                        fix: "아내들이 '기다리는' 능동의 주체이므로 과거분사(waited)가 아닌 현재분사(waiting)를 써야 합니다."
+                    },
+                    {
+                        text: "<span class='font-semibold'>waiting</span> wives to welcome their men home",
+                        isCorrect: false,
+                        misconception: "수식어구가 길어짐에도 무조건 명사 앞으로 현재분사를 위치시킴.",
+                        fix: "수식어구(to welcome...)가 딸려 있어서 길어진 분사구는 명사(wives) '뒤'에서 수식해야 합니다."
+                    },
+                    {
+                        text: "wives to <span class='font-semibold'>waiting</span> welcome their men home",
+                        isCorrect: false,
+                        misconception: "to부정사의 to 뒤에 동사원형 대신 ~ing를 놓는 어법적 오류 발생.",
+                        fix: "to부정사의 to 뒤에는 동사원형이 와야 하며 분사가 올 수 없습니다."
+                    }
+                ]
+            },
+            {
+                id: 3,
+                question: "다음 본문 문장에서 <span class='underline font-bold text-blue-600'>standing</span>의 문법적 역할에 대한 설명으로 옳은 것은?",
+                context: "Christmas trees were <span class='underline font-bold'>standing</span> lit with lanterns!",
+                options: [
+                    {
+                        text: "과거진행형(were + ~ing)을 만드는 <span class='font-semibold'>현재분사</span>로, '서 있었다'라는 동작/상태를 나타낸다.",
+                        isCorrect: true,
+                        misconception: "be + ~ing 진행형 구조에서 ~ing가 현재분사임을 올바르게 파악함.",
+                        fix: "정답! be동사(were)와 함께 쓰여 과거진행형을 이루는 standing은 현재분사입니다."
+                    },
+                    {
+                        text: "문장의 주어 역할을 하는 <span class='font-semibold'>동명사</span>이다.",
+                        isCorrect: false,
+                        misconception: "~ing 형태가 문장에 보이면 무조건 명사/주어로 해석하려는 오개념.",
+                        fix: "이 문장의 주어는 Christmas trees이며, standing은 동사부의 현재분사입니다."
+                    },
+                    {
+                        text: "'서 있는 것'이라는 의미의 <span class='font-semibold'>동명사 보어</span>이다.",
+                        isCorrect: false,
+                        misconception: "be동사 뒤의 ~ing를 '주어=~하는 것' 관계의 동명사 보어로 오해함.",
+                        fix: "'크리스마스 트리가 서 있는 것이었다'는 뜻이 어색하므로 동격의 동명사 보어가 아닌 진행형 현재분사입니다."
+                    },
+                    {
+                        text: "뒤에 나오는 형용사 lit을 꾸며주는 <span class='font-semibold'>부사</span>이다.",
+                        isCorrect: false,
+                        misconception: "~ing 형태가 부사로 쓰였다고 오해함.",
+                        fix: "standing은 분사이며, lit(밝혀진)은 상태를 설명하는 분사 보어입니다."
+                    }
+                ]
+            },
+            {
+                id: 4,
+                question: "본문의 <span class='underline font-bold text-blue-600'>'...by also singing Christmas songs'</span>에서 singing의 문법적 명칭과 역할은?",
+                context: "The English soldiers began to answer by also <span class='underline font-bold'>singing</span> Christmas songs.",
+                options: [
+                    {
+                        text: "전치사(by) 뒤에 위치하여 전치사의 목적어 역할을 하는 <span class='font-semibold'>동명사</span>",
+                        isCorrect: true,
+                        misconception: "전치사 뒤 동명사의 역할을 명확히 파악함.",
+                        fix: "정답! 전치사(by) 다음에는 명사 역할이 와야 하므로 singing은 동명사(~하는 것)입니다."
+                    },
+                    {
+                        text: "뒤에 오는 명사 Christmas songs를 꾸며주는 <span class='font-semibold'>현재분사</span>",
+                        isCorrect: false,
+                        misconception: "뒤에 명사(Christmas songs)가 오므로 무조건 명사 수식 현재분사로 오해함.",
+                        fix: "singing은 Christmas songs를 목적어로 취하는 동명사구(노래를 부르는 것)를 형성하여 전치사 by에 연결됩니다."
+                    },
+                    {
+                        text: "앞의 주어 English soldiers를 수식하는 <span class='font-semibold'>현재분사</span>",
+                        isCorrect: false,
+                        misconception: "문장의 주어와 ~ing를 바로 연결해 형용사 수식으로 착각함.",
+                        fix: "주어 수식이 아닌 by(~함으로써) 구문 안의 동명사입니다."
+                    },
+                    {
+                        text: "문장의 본동사 역할을 하는 <span class='font-semibold'>현재분사</span>",
+                        isCorrect: false,
+                        misconception: "~ing 혼자서 문장의 본동사가 될 수 있다는 오개념.",
+                        fix: "이 문장의 본동사는 began이며, ~ing 혼자서는 문장의 본동사가 될 수 없습니다."
+                    }
+                ]
+            }
+        ];
+
+        let userAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = quizQuestions.map((q, idx) => `
+                <div id="quiz-card-${q.id}" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                    <div class="flex items-start justify-between gap-2">
+                        <h3 class="font-bold text-slate-800 text-sm md:text-base">
+                            <span class="text-blue-600 font-extrabold mr-1">Q${idx + 1}.</span> ${q.question}
+                        </h3>
+                    </div>
+
+                    ${q.context ? `<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 font-mono text-xs md:text-sm text-slate-700">${q.context}</div>` : ''}
+
+                    <div class="space-y-2">
+                        ${q.options.map((opt, oIdx) => `
+                            <button onclick="answerQuiz(${q.id}, ${oIdx})" id="btn-q-${q.id}-${oIdx}" class="quiz-opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 text-xs md:text-sm hover:border-blue-400 hover:bg-blue-50/50 transition-all flex items-center justify-between">
+                                <span><strong class="text-slate-400 mr-2">${oIdx + 1}.</strong> ${opt.text}</span>
+                                <i id="icon-q-${q.id}-${oIdx}" class="fa-regular fa-circle text-slate-300 text-base"></i>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <!-- Answer Explanation Table (Hidden until answered) -->
+                    <div id="quiz-expl-${q.id}" class="hidden mt-4 pt-4 border-t border-slate-200 space-y-3">
+                        <div id="quiz-result-badge-${q.id}" class="font-bold text-sm"></div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-600 border-b border-slate-200">
+                                        <th class="p-2 w-16">선지</th>
+                                        <th class="p-2 w-16">정오</th>
+                                        <th class="p-2">이 선지를 고르는 학생의 생각 (오개념 분석)</th>
+                                        <th class="p-2">바로잡기</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${q.options.map((opt, oIdx) => `
+                                        <tr class="border-b border-slate-100 ${opt.isCorrect ? 'bg-emerald-50/60' : ''}">
+                                            <td class="p-2 font-bold">${oIdx + 1}번</td>
+                                            <td class="p-2">
+                                                ${opt.isCorrect 
+                                                    ? '<span class="text-emerald-600 font-bold">O (정답)</span>' 
+                                                    : '<span class="text-rose-500 font-bold">X (오답)</span>'}
+                                            </td>
+                                            <td class="p-2 text-slate-600">${opt.misconception}</td>
+                                            <td class="p-2 text-slate-800 font-medium">${opt.fix}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function answerQuiz(qId, optionIdx) {
+            if (userAnswers[qId] !== undefined) return; // Prevent re-answering
+            userAnswers[qId] = optionIdx;
+
+            const q = quizQuestions.find(item => item.id === qId);
+            const selectedOpt = q.options[optionIdx];
+
+            // Disable buttons for this question
+            q.options.forEach((_, oIdx) => {
+                const btn = document.getElementById(`btn-q-${qId}-${oIdx}`);
+                const icon = document.getElementById(`icon-q-${qId}-${oIdx}`);
+                btn.disabled = true;
+                btn.classList.add('cursor-not-allowed', 'opacity-80');
+
+                if (oIdx === optionIdx) {
+                    if (selectedOpt.isCorrect) {
+                        btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900');
+                        icon.className = 'fa-solid fa-circle-check text-emerald-500 text-base';
+                    } else {
+                        btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-900');
+                        icon.className = 'fa-solid fa-circle-xmark text-rose-500 text-base';
+                    }
+                } else if (q.options[oIdx].isCorrect) {
+                    btn.classList.add('bg-emerald-50/50', 'border-emerald-300');
+                }
+            });
+
+            // Show Explanation Table
+            const explDiv = document.getElementById(`quiz-expl-${qId}`);
+            const badgeDiv = document.getElementById(`quiz-result-badge-${qId}`);
+            explDiv.classList.remove('hidden');
+
+            if (selectedOpt.isCorrect) {
+                badgeDiv.className = "text-emerald-600 font-bold text-sm flex items-center gap-1";
+                badgeDiv.innerHTML = '<i class="fa-solid fa-circle-check"></i> 정답입니다!';
+            } else {
+                badgeDiv.className = "text-rose-600 font-bold text-sm flex items-center gap-1";
+                badgeDiv.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 오답입니다. 아래 해설 표를 보고 오개념을 교정해보세요!';
+            }
+
+            // Update Progress
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('quiz-progress-text').innerText = `${answeredCount} / ${quizQuestions.length}`;
+
+            // Check if all answered
+            if (answeredCount === quizQuestions.length) {
+                showQuizSummary();
+            }
+        }
+
+        function showQuizSummary() {
+            let correctCount = 0;
+            let misconceptions = [];
+
+            quizQuestions.forEach(q => {
+                const selectedIdx = userAnswers[q.id];
+                const selectedOpt = q.options[selectedIdx];
+                if (selectedOpt.isCorrect) {
+                    correctCount++;
+                } else {
+                    misconceptions.push({
+                        qNum: q.id,
+                        selected: selectedIdx + 1,
+                        text: selectedOpt.misconception
+                    });
+                }
+            });
+
+            const score = (correctCount / quizQuestions.length) * 100;
+            document.getElementById('final-score').innerText = score;
+
+            const analysisDiv = document.getElementById('misconception-analysis');
+            if (score === 100) {
+                analysisDiv.innerHTML = `
+                    <div class="text-emerald-700 font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-award text-lg"></i> 완벽합니다! 현재분사와 동명사의 역할을 완벽하게 구분하고 있습니다.
+                    </div>
+                `;
+            } else {
+                analysisDiv.innerHTML = `
+                    <div class="font-bold text-slate-800 mb-2 border-b pb-1">
+                        <i class="fa-solid fa-chart-pie text-amber-500 mr-1"></i> 자주 틀린 오개념 피드백 리포트:
+                    </div>
+                    <ul class="space-y-1.5 text-xs text-slate-700 list-disc pl-4">
+                        ${misconceptions.map(m => `
+                            <li><strong>Q${m.qNum} (선택: ${m.selected}번):</strong> ${m.text}</li>
+                        `).join('')}
+                    </ul>
+                `;
+            }
+
+            document.getElementById('quiz-final-result').classList.remove('hidden');
+            document.getElementById('quiz-final-result').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            userAnswers = {};
+            document.getElementById('quiz-progress-text').innerText = `0 / ${quizQuestions.length}`;
+            document.getElementById('quiz-final-result').classList.add('hidden');
+            renderQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            updateSimCard();
+            renderQuiz();
+        };
+    </script>
+</body>
+</html>
